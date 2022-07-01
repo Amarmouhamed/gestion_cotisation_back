@@ -5,7 +5,8 @@ try {
 
     $condition=dynamicCondition($params,"like");
     // $reponse["condition"]=$condition;
-    $query="select * from $table_name ".$condition;
+    $id_tontine=$params["id_tontine"];
+    $query="SELECT * FROM periode WHERE id_tontine=$id_tontine order by mois, annee";
     $reponse["data"] = $connexion->query($query)->fetchAll(PDO::FETCH_ASSOC);
     $reponse["status"] = true;
 

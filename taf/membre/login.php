@@ -11,7 +11,7 @@ try {
     }
     $numero=addslashes($params["numero"]);
     $password=addslashes($params["password"]);
-    $query="select id_membre,id_tontine,prenom,nom, adresse,poste ,numero,matricule, etat, adhesion, privilege, date_demarrage from membre where numero='$numero' and password='$password'";
+    $query="select * from membre where numero='$numero' and password='$password'";
     $resultat = $connexion->query($query);
     if ($ligne=$resultat->fetch(PDO::FETCH_ASSOC)) {
         $reponse["status"]=true;

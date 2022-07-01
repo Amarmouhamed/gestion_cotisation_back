@@ -3,9 +3,9 @@ try {
     require './config.php';
     $params=$get_params;
 
-    $condition=dynamicCondition($params,"like");
+    $id_membre=$params["id_membre"];
     // $reponse["condition"]=$condition;
-    $query="select * from $table_name ".$condition;
+    $query="select *from $table_name a join type_amande ta on a.id_type_amande=ta.id_type_amande where id_membre=$id_membre and a.etat_amande=0";
     $reponse["data"] = $connexion->query($query)->fetchAll(PDO::FETCH_ASSOC);
     $reponse["status"] = true;
 
