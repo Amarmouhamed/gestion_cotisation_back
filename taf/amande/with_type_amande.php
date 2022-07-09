@@ -5,7 +5,7 @@ try {
 
     $id_membre=$params["id_membre"];
     // $reponse["condition"]=$condition;
-    $query="select *from $table_name a join type_amande ta on a.id_type_amande=ta.id_type_amande where id_membre=$id_membre and a.etat_amande=0";
+    $query="select * from $table_name a join type_amande ta on a.id_type_amande=ta.id_type_amande join periode p on p.id_periode=a.id_periode where id_membre=$id_membre and a.etat_amande=0";
     $reponse["data"] = $connexion->query($query)->fetchAll(PDO::FETCH_ASSOC);
     $reponse["status"] = true;
 

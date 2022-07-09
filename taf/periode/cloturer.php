@@ -33,6 +33,8 @@ try {
             "id_tontine"=>$id_tontine,
             "id_membre"=>$ligne["id_membre"],
             "id_type_amande"=>1,
+            "etat_amande"=>0,
+            "id_periode"=>$id_periode,
         )));
     } 
     $connexion->exec("update periode set etat_periode=1 where id_periode=$id_periode");

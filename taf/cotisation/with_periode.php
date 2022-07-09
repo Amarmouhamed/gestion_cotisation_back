@@ -5,7 +5,7 @@ try {
 
     $condition=dynamicCondition($params,"like");
     // $reponse["condition"]=$condition;
-    $query="select *from $table_name c join periode p on c.id_periode=p.id_periode ".$condition;
+    $query="select *from $table_name c join periode p on c.id_periode=p.id_periode ".$condition." order by p.mois desc,p.annee desc";
     $reponse["data"] = $connexion->query($query)->fetchAll(PDO::FETCH_ASSOC);
     $reponse["status"] = true;
 
